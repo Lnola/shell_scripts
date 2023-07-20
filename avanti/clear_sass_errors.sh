@@ -1,23 +1,21 @@
 #!/bin/bash
 
-# Check if a filename is provided as an argument
-if [ -z "$1" ]; then
-  echo "Usage: $0 <filename>"
+# Check if folder path and file extension are provided as arguments
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: $0 <folder_path> <file_extension>"
   exit 1
 fi
 
-# Store the filename in a variable
-filename="$1"
+# Store the folder path and file extension in variables
+folder_path="$1"
+file_extension="$2"
 
 # Step 1: Remove any mention of "@use "sass:math""
 # Step 2: Replace all occurrences of "math.div(x, y)" with "calc(x / y)"
-# Save the changes to a temporary file
-sed -E \
+# Apply the changes to files with the specified extension in the selected folder and its subdirectories
+find "$folder_path" -type f -name "*.$file_extension" -exec sed -E -i '' \
   -e '/@use "sass:math"/d' \
   -e 's/math\.div\(([^)]*), ([^)]*)\)/calc(\1 \/ \2)/g' \
-  "$filename" > "${filename}.temp"
+  {} \;
 
-# Move the temporary file back to the original filename
-mv "${filename}.temp" "$filename"
-
-echo "Conversion complete. Contents of $filename have been updated."
+echo "Conversion complete. Contents of files with extension .$file_extension in folder $folder_path have been updated."
