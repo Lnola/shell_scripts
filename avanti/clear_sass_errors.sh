@@ -10,6 +10,10 @@ fi
 folder_path="$1"
 file_extension="$2"
 
+# Perform the sass-migrator conversion for all defined files
+npm install -g sass-migrator
+sass-migrator division $folder_path/**/*.$file_extension
+
 # Step 1: Remove any mention of "@use "sass:math""
 # Step 2: Replace all occurrences of "math.div(x, y)" with "calc(x / y)"
 # Apply the changes to files with the specified extension in the selected folder and its subdirectories
