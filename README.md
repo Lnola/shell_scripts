@@ -13,29 +13,8 @@ $ cd ~
 $ vim .zshrc
 ```
 
-Add this to the bottom of the file
-
-```sh
-# <<<<< CUSTOM SHELL SCRIPTS >>>>>
-
-# To add a new subfolder access just add the name to the list
-sub_folders=("/" "group1" "group2" "group3")
-
-# Add all ~/bin/ subfolders to path
-for sub_folder in "${sub_folders[@]}"; do
-    export PATH="$HOME/bin/$sub_folder:$PATH"
-done
-
-# Add a prefix to all files in the subfolder
-prefix="g1"
-subfolder="group1"
-for file in ~/bin/$subfolder/*.sh; do
-    filename=$(basename "$file" .sh)
-    alias "${prefix}_${filename}"="$file"
-done
-
-# <<<<< CUSTOM SHELL SCRIPTS >>>>>
-```
+Donwload the required plugins and P10K [link](https://www.josean.com/posts/terminal-setup).
+Copy the `config/.zshrc` and `config/.p10k.zsh` files.
 
 ### ~/bin
 
