@@ -156,18 +156,19 @@ alias lst2="tree -L 2"
 
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
 # To add a new subfolder access just add the name in the list
-sub_folders=("/" "avanti")
+sub_folders=("avanti")
 
-# Add all ~/bin/ subfolders to path
 for sub_folder in "${sub_folders[@]}"; do
+    # Add all ~/bin/ subfolders to path
     export PATH="$HOME/bin/$sub_folder:$PATH"
+
+    # Add root files in sub_folders to alias
+    for file in "$HOME/bin/$sub_folder/"*.sh; do
+        filename=$(basename "$file" .sh)
+        alias "$filename"="$file"
+    done
 done
 
-# Add and "av" prefix to all files in the subfolder
-for file in ~/bin/avanti/*.sh; do
-    filename=$(basename "$file" .sh)
-    alias "av_$filename"="$file"
-done
+alias avstd="av start:dev"
+alias ave2e="av test:e2e"
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
-
-
