@@ -69,3 +69,6 @@ $ source ~/.zshrc
 ```
 
 5. Run the command from anywhere!
+
+https://github.com/josean-dev/dev-environment-files
+https://www.josean.com/posts/terminal-setup
