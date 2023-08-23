@@ -50,7 +50,7 @@ osascript<<EOF
         # Write start of test command in Pane-3
         tell third session of current tab of current window
             tell application "System Events"        
-                keystroke " npm run cy:"
+                keystroke "   npm run cy:"
             end tell
         end tell
         
