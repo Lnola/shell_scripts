@@ -170,5 +170,8 @@ for sub_folder in "${sub_folders[@]}"; do
 done
 
 alias avstd="av start:dev"
+alias avsti="av start:infra"
 alias ave2e="av test:e2e"
+alias avstp="av stop"
+alias avrms="av migration:seed"
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
