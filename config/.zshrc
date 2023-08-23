@@ -1,3 +1,4 @@
+# <<<<< P10K >>>>>
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,11 +6,17 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# <<<<< P10K >>>>>
+
+# <<<<< ZSH CONFIG >>>>>
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+# <<<<< ZSH CONFIG >>>>>
 
 # <<<<< THEMES >>>>>
 # Set name of the theme to load --- if set to "random", it will
@@ -31,6 +38,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 # <<<<< THEMES >>>>>
 
+# <<<<< RULES >>>>>
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -79,7 +87,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+# <<<<< RULES >>>>>
 
+# <<<<< PLUGINS >>>>>
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -98,9 +108,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+# <<<<< PLUGINS >>>>>
 
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -116,15 +126,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # pnpm
 export PNPM_HOME="/Users/eedev/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
@@ -139,7 +140,7 @@ eval "$(fnm env --use-on-cd)"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 
-# >>> conda initialize >>>
+# <<<<< CONDA >>>>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/eedev/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
@@ -152,9 +153,24 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
+# <<<<< CONDA >>>>>
 
-# <<<<< CUSTOM SHELL SCRIPTS >>>>>
+# <<<<< ALIAS >>>>>
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias zshconfig="code ~/.zshrc"
+alias lst="tree -L 1"
+alias lst2="tree -L 2"
+# <<<<< ALIAS >>>>>
+
+# <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
 # To add a new subfolder access just add the name in the list
 sub_folders=("/" "avanti")
 
@@ -168,13 +184,6 @@ for file in ~/bin/avanti/*.sh; do
     filename=$(basename "$file" .sh)
     alias "av_$filename"="$file"
 done
-# <<<<< CUSTOM SHELL SCRIPTS >>>>>
+# <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
 
-# <<<<< ALIASES >>>>>
-alias zshconfig="code ~/.zshrc"
-alias lst="tree -L 1"
-alias lst2="tree -L 2"
-# <<<<< ALIASES >>>>>
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
