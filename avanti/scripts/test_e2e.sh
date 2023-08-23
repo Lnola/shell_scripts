@@ -23,33 +23,35 @@ osascript<<EOF
         # Start test postgres in Pane-3
         tell third session of current tab of current window
             write text "z sol"
-            write text "av_kill_postgres_test"
-            write text "av_start_postgres_dev"
+            write text "av pg:kill:dev"
+            write text "av pg:start:test"
         end tell
 
-         # Wait for postgres to start before starting the apps
+        # Wait for postgres to start before starting the apps
         set var_wait to 0
         repeat until (var_wait = 1)
-            if (text of third session of current tab of current window contains "avanti_postgres") then
+            if (text of third session of current tab of current window contains "Successfully started `postgresql@14`") then
                 set var_wait to 1
             end if
         end repeat
 
-        # Run command in Pane-1
+        # Run test dev server in Pane-1
         tell first session of current tab of current window
             write text "z sol"
-            write text "npm run dev:server"
+            write text "npm run dev:test:server"
         end tell
 
-        # Run command in Pane-2
+        # Run test dev client in Pane-2
         tell second session of current tab of current window
             write text "z sol"
-            write text "npm run dev:client"
+            write text "npm run dev:test:client"
         end tell
 
         # Write start of test command in Pane-3
         tell third session of current tab of current window
-            write text "code ."
+            tell application "System Events"        
+                keystroke " npm run cy:"
+            end tell
         end tell
         
         # Focus Pane-3
