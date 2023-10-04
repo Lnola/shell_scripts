@@ -47,10 +47,10 @@ osascript<<EOF
             write text "npm run dev:client"
         end tell
 
-        # Write start of test command in Pane-3
-        tell third session of current tab of current window
-            write text "code ."
-        end tell
+        # # Write start of test command in Pane-3
+        # tell third session of current tab of current window
+        #     write text "code ."
+        # end tell
         
         # Focus Pane-3
         select third session of current tab of current window
