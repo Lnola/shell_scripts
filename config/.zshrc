@@ -134,6 +134,7 @@ export PATH="$PNPM_HOME:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 eval "$(fnm env --use-on-cd)"
+export FNM_RESOLVE_ENGINES="true"
 
 
 # Generated for envman. Do not edit.
