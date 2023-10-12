@@ -8,13 +8,15 @@ RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir -p /run/sshd
 RUN chmod 755 /run/sshd
 
-# Install Python 3.8
-RUN apt-get update && apt-get install -y python3.8
+# Install Python 3.8 and Git
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y python3.8 git
+ENV DEBIAN_FRONTEND=
 
 # Expose SSH port
 EXPOSE 22
 
-# Create a new user (replace 'eedev' with your desired username)
+# Create a new user
 ARG SSH_PUBLIC_KEY
 RUN useradd -m -d /home/eedev -s /bin/bash eedev
 
