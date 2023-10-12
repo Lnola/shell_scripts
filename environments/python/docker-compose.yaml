@@ -1,0 +1,12 @@
+version: '3'
+name: python
+services:
+  v3.8:
+    container_name: v3.8
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '2222:22'
+    volumes:
+      - ~/.ssh/id_rsa.pub:/home/eedev/.ssh/authorized_keys:ro
