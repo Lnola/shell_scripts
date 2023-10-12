@@ -17,15 +17,7 @@ ENV DEBIAN_FRONTEND=
 EXPOSE 22
 
 # Create a new user
-ARG SSH_PUBLIC_KEY
 RUN useradd -m -d /home/eedev -s /bin/bash eedev
-
-# Copy the SSH public key into the container
-RUN mkdir /home/eedev/.ssh
-RUN echo "$SSH_PUBLIC_KEY" > /home/eedev/.ssh/authorized_keys
-RUN chown -R eedev:eedev /home/eedev/.ssh
-RUN chmod 700 /home/eedev/.ssh
-RUN chmod 600 /home/eedev/.ssh/authorized_keys
 
 # Start the SSH server
 CMD ["/usr/sbin/sshd", "-D"]
