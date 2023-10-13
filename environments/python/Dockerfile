@@ -8,10 +8,15 @@ RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir -p /run/sshd
 RUN chmod 755 /run/sshd
 
-# Install Python 3.8, Git, Zsh and Curl
+# Install Python 3.8, Git, Zsh, Curl and Pip
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y python3.8 git zsh curl
+RUN apt-get update && apt-get install -y python3.8 git zsh curl python3-pip
 ENV DEBIAN_FRONTEND=
+
+# Install python required libs
+RUN pip install scipy
+RUN pip install -U scikit-learn
+RUN pip install jupyterlab
 
 # Set Zsh as the default shell for the root user
 RUN chsh -s /usr/bin/zsh root
