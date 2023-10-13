@@ -15,6 +15,8 @@ osascript<<EOF
             write text "(z python && docker compose up -d)"
             # SSS into the docker container
             write text "ssh root@localhost -p 2222"
+            # Clone the repository
+            write text "git clone git@github.com:Lnola/College.git"
 
             #  Wait for Command + D
             set var_wait to 0
