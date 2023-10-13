@@ -155,6 +155,8 @@ alias lst="tree -L 1"
 alias lst2="tree -L 2"
 # <<<<< ALIAS >>>>>
 
+# TODO: extract into separate files
+# TODO: sync with the real file
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
 # To add a new subfolder access just add the name in the list
 sub_folders=("avanti" "environments")
