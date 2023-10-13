@@ -8,8 +8,3 @@ services:
       dockerfile: Dockerfile
     ports:
       - '2222:22'
-    # volumes:
-    #   - ~/.ssh/id_rsa.pub:/home/eedev/.ssh/authorized_keys:ro
-    #   - ~/.ssh/id_rsa.pub:/home/eedev/.ssh/id_rsa.pub:ro
-    #   - ~/.ssh/id_rsa:/home/eedev/.ssh/id_rsa:ro
-    #   - ~/.gitconfig:/etc/gitconfig:ro
