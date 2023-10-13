@@ -14,7 +14,7 @@ osascript<<EOF
             # Start the docker container
             write text "(z python && docker compose up -d)"
             # SSS into the docker container
-            write text "ssh eedev@localhost -p 2222"
+            write text "ssh root@localhost -p 2222"
         end tell
 
         #  Wait for Command + D
