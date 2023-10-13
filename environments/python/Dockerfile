@@ -22,6 +22,11 @@ RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/inst
 # Install Powerlevel10k for Zsh
 RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/.oh-my-zsh/custom/themes/powerlevel10k
 
+# Install zsh-syntax-highlighting
+RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+# Install zsh-autosuggestions
+RUN git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
 # Add github keys
 RUN mkdir /root/.ssh/
 RUN touch /root/.ssh/known_hosts
