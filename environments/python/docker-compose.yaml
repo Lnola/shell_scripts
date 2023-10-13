@@ -12,6 +12,7 @@ services:
       - ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro
       - ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:ro
       - ~/.ssh/id_rsa.pub:/root/.ssh/authorized_keys:ro
+      - ~/.ssh/id_rsa.pub:/root/.ssh/known_hosts:ro
       - ~/.gitconfig:/etc/gitconfig:ro
       - ~/.p10k.zsh:/root/.p10k.zsh:rw
       - ~/.zshrc:/root/.zshrc:rw
