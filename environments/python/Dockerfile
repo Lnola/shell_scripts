@@ -17,6 +17,7 @@ ENV DEBIAN_FRONTEND=
 RUN pip install scipy
 RUN pip install -U scikit-learn
 RUN pip install jupyterlab
+RUN pip install pandas
 
 # Set Zsh as the default shell for the root user
 RUN chsh -s /usr/bin/zsh root
