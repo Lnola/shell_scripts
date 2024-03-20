@@ -35,6 +35,11 @@ osascript<<EOF
 
     tell application "Iterm"
         activate
+        tell current session of current window to write text "z sol && code ."
         tell application "System Events" to keystroke "avst"
+
+        delay 1
+        
+        activate
     end tell
 EOF
