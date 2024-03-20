@@ -1,5 +1,8 @@
 #!/bin/bash
 
+keycodes=( 18 19 20 21 23 22 26 28 25 )
+keycode=${keycodes[4 - 1]}
+
 osascript<<EOF
     tell application "Iterm"
         activate      
@@ -32,6 +35,12 @@ osascript<<EOF
         tell third session of current tab of current window
             write text "z learn && code ."
         end tell
+    end tell
+
+    delay 1
+
+    tell application "System Events" 
+        key code $keycode using {shift down, option down, control down}
     end tell
 EOF
 
