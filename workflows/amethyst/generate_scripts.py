@@ -77,10 +77,10 @@ def generate_applescript_commands(modifier, key):
         raise ValueError(f"Invalid modifier: {modifier}")
     mod = ', '.join([f"{mod_key} down" for mod_key in modifiers_mapping[modifier]])
     
-    if len(key) == 1:
-        key = f'keystroke "{key}"'
-    elif key in key_codes:
+    if key in key_codes:
         key = f'key code {key_codes[key]}'
+    elif len(key) == 1:
+        key = f'keystroke "{key}"'
     else:
         raise ValueError(f"Invalid key: {key}")
     
