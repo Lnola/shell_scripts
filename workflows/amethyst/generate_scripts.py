@@ -71,35 +71,40 @@ def format_title(name):
     return name.replace('-', ' ').replace('_', ' ').title().replace(' Ccw', ' CCW').replace(' Cw', ' CW')
 
 
-def generate_applescript_commands(modifier, key):
-    """Generate AppleScript commands from modifiers and key."""
+def extract_mod(modifier):
     if modifier not in modifiers_mapping:
         raise ValueError(f"Invalid modifier: {modifier}")
-    mod = ', '.join([f"{mod_key} down" for mod_key in modifiers_mapping[modifier]])
-    
+    return ', '.join([f"{mod_key} down" for mod_key in modifiers_mapping[modifier]])
+
+
+def extract_key(key):
     if key in key_codes:
-        key = f'key code {key_codes[key]}'
+        return f'key code {key_codes[key]}'
     elif len(key) == 1:
-        key = f'keystroke "{key}"'
+        return f'keystroke "{key}"'
     else:
         raise ValueError(f"Invalid key: {key}")
-    
-    return mod, key
 
 
-def generate_script(file_path, title, mod, key):
+def generate_applescript(title, modifier, key):
+    """Generate AppleScript commands from modifiers and key."""
+    mod = extract_mod(modifier)
+    key = extract_key(key)
+    return script_template.format(title=title, key=key, mod=mod)
+
+
+def generate_script(script, file_path):
     """Generate AppleScript based on the template and write to the file."""
-    script_content = script_template.format(title=title, key=key, mod=mod)
     with open(file_path, 'w') as script_file:
-        script_file.write(script_content)
+        script_file.write(script)
 
 
 def generate_scripts(command, keybind):
     try:
         title = format_title(command)
-        mod, key = generate_applescript_commands(keybind['mod'], keybind['key'])
+        script = generate_applescript(title, keybind['mod'], keybind['key'])
         script_path = f"{command}.applescript"
-        generate_script(script_path, title, mod, key)
+        generate_script(script, script_path)
         print(f"Generated script: {script_path}")
     except ValueError as error:
         print(f"Skipping '{command}': {error}")
