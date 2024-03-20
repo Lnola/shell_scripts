@@ -14,5 +14,5 @@
 # @raycast.description Move the currently focused app to the nth space
 # @raycast.author Luka Nola
 
-"../utils/move_app_to_space_n.sh" "$1"
+"../utils/move_app_to_space.sh" "$1"
 
