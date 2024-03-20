@@ -7,7 +7,7 @@
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon ./assets/amethyst.png
+# @raycast.icon ../assets/amethyst.png
 # @raycast.argument1 { "type": "text", "placeholder": "Number" }
 
 # Documentation:
