@@ -29,35 +29,7 @@ osascript<<EOF
     delay 1
 
     do shell script "utils/move_app_to_space.sh Arc 3"
+    do shell script "arc/switch_space.sh 2"
 
     delay 1
-
-    tell application "Iterm"
-        activate
-        write text "z sol && code ."
-
-        # Split pane
-        tell current session of current window
-            split vertically with default profile
-        end tell
-
-        # Split pane
-        tell current session of current window
-            split horizontally with default profile
-        end tell
-
-        tell first session of current tab of current window
-            write text "z learn"
-            write text "npm run storybook:dev"
-        end tell
-
-        tell second session of current tab of current window
-            write text "z learn"
-            write text "npm run dev"
-        end tell
-
-        tell third session of current tab of current window
-            write text "z learn && code ."
-        end tell
-    end tell
 EOF
