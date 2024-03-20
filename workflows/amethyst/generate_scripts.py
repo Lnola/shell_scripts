@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.packageName Amethyst
+# @raycast.title Generate Amethyst Scripts
+# @raycast.mode silent
+
+# Optional parameters:
+# @raycast.icon ./assets/amethyst.png
+
+# Documentation:
+# @raycast.description Script to generate Amethyst scripts for Raycast.
+# @raycast.author Luka Nola
+
 import os, yaml, re
 
 mod_pattern = r'^mod[1-4]'
