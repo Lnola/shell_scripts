@@ -32,4 +32,9 @@ osascript<<EOF
     do shell script "arc/switch_space.sh 2"
 
     delay 1
+
+    tell application "Iterm"
+        activate
+        tell application "System Events" to keystroke "avst"
+    end tell
 EOF
