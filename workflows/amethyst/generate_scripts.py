@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import os, yaml, re
 
+mod_pattern = r'^mod[1-4]'
+
 home_dir = os.environ['HOME']
 config_file_path = f"{home_dir}/.amethyst.yml"
 
@@ -23,7 +25,6 @@ key_codes = {
     '7': 26,
     '8': 28,
     '9': 25,
-
 }
 
 script_template = """#!/usr/bin/osascript
@@ -106,9 +107,11 @@ def main():
     config_data = load_yaml_config(config_file_path)
 
     for key, value in config_data.items():
-        if re.match(r'^mod[1-4]', key):
+        # map modifiers mod[1-4]
+        if re.match(mod_pattern, key):
             modifiers_mapping[key] = value
 
+        # generate scripts for keybindings
         if isinstance(value, dict):
             generate_scripts(key, value)
 
