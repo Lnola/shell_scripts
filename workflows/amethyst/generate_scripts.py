@@ -93,19 +93,19 @@ def generate_applescript(title, modifier, key):
     return script_template.format(title=title, key=key, mod=mod)
 
 
-def generate_script(script, file_path):
+def write_script_to_file(script, filename):
     """Generate AppleScript based on the template and write to the file."""
+    file_path = f"{filename}.applescript"
     with open(file_path, 'w') as script_file:
         script_file.write(script)
-
+    print(f"Generated script: {file_path}")
+    
 
 def generate_scripts(command, keybind):
     try:
         title = format_title(command)
         script = generate_applescript(title, keybind['mod'], keybind['key'])
-        script_path = f"{command}.applescript"
-        generate_script(script, script_path)
-        print(f"Generated script: {script_path}")
+        write_script_to_file(script, filename=command)
     except ValueError as error:
         print(f"Skipping '{command}': {error}")
 
