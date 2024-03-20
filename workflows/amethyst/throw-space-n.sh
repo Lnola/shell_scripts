@@ -2,6 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
+# @raycast.packageName Amethyst
 # @raycast.title Throw space n
 # @raycast.mode silent
 
