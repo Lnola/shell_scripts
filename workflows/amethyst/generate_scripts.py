@@ -43,7 +43,7 @@ script_template = """#!/usr/bin/osascript
 # @raycast.author Luka Nola
 
 tell application "System Events"
-    {key_command} using {{{mod_keys}}}
+    {key} using {{{mod}}}
 end tell
 """
 
@@ -71,39 +71,38 @@ def format_title(name):
     return name.replace('-', ' ').replace('_', ' ').title().replace(' Ccw', ' CCW').replace(' Cw', ' CW')
 
 
-def generate_applescript_commands(mods, key):
+def generate_applescript_commands(modifier, key):
     """Generate AppleScript commands from modifiers and key."""
-    if mods not in modifiers_mapping:
-        raise ValueError(f"Invalid modifier: {mods}")
-    
-    mod_keys = ', '.join([f"{mod} down" for mod in modifiers_mapping[mods]])
+    if modifier not in modifiers_mapping:
+        raise ValueError(f"Invalid modifier: {modifier}")
+    mod = ', '.join([f"{mod_key} down" for mod_key in modifiers_mapping[modifier]])
     
     if len(key) == 1:
-        key_command = f'keystroke "{key}"'
+        key = f'keystroke "{key}"'
     elif key in key_codes:
-        key_command = f'key code {key_codes[key]}'
+        key = f'key code {key_codes[key]}'
     else:
         raise ValueError(f"Invalid key: {key}")
     
-    return mod_keys, key_command
+    return mod, key
 
 
-def generate_script(file_path, title, mod_keys, key_command):
+def generate_script(file_path, title, mod, key):
     """Generate AppleScript based on the template and write to the file."""
-    script_content = script_template.format(title=title, key_command=key_command, mod_keys=mod_keys)
+    script_content = script_template.format(title=title, key=key, mod=mod)
     with open(file_path, 'w') as script_file:
         script_file.write(script_content)
 
 
-def generate_scripts(name, attributes):
+def generate_scripts(command, keybind):
     try:
-        title = format_title(name)
-        mod_keys, key_command = generate_applescript_commands(attributes['mod'], attributes['key'])
-        script_path = f"{name}.applescript"
-        generate_script(script_path, title, mod_keys, key_command)
+        title = format_title(command)
+        mod, key = generate_applescript_commands(keybind['mod'], keybind['key'])
+        script_path = f"{command}.applescript"
+        generate_script(script_path, title, mod, key)
         print(f"Generated script: {script_path}")
     except ValueError as error:
-        print(f"Skipping '{name}': {error}")
+        print(f"Skipping '{command}': {error}")
 
 
 def main():
