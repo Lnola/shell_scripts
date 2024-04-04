@@ -74,3 +74,7 @@ https://github.com/josean-dev/dev-environment-files
 https://www.josean.com/posts/terminal-setup
 
 REMINDER: if ever rebuilding ssh accessed environments, make sure to remove local known_hosts and have them applied automatically again
+
+# TODO: Update documentation according to the new changes
+
+# TODO: Fix folder structure before laptop switch
