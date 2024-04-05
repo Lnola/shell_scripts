@@ -4,7 +4,7 @@
 # USE THE ~/bin FOLDER INSTEAD
 
 # To apply the changes manually run
-# $ copy-file-to-destination --with-check ~/bin/config/.zsh_scripts/manage_nvmrc_with_fnm.sh ~/.zsh_scripts
+# $ copy-file-to-destination --with-check ~/bin/config/.zsh_scripts/manage-nvmrc-with-fnm.sh ~/.zsh_scripts
 
 autoload -U add-zsh-hook
 
