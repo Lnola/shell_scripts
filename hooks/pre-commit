@@ -1,3 +1,5 @@
 #!/bin/bash
 
+# To apply the changes run
+# $ apply-hooks ~/bin
 $HOME/bin/scripts/apply-config.sh
