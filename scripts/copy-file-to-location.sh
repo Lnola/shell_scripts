@@ -17,7 +17,7 @@ if [ -e "$2/$filename" ]; then
     else
         echo "File $filename already exists at destination. Showing differences:"
         # Show differences
-        code -d "$1" "$2/$filename"
+        code -d "$2/$filename" "$1"
         
         # Ask the user for input
         read -p "Do you want to overwrite the file? (yes/no): " user_choice
