@@ -1,0 +1,10 @@
+[
+  {
+    "source": "../test/source/1.txt",
+    "destination": "../test/destination"
+  },
+  {
+    "source": "../test/source/3.txt",
+    "destination": "../test/destination"
+  }
+]
