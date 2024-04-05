@@ -35,5 +35,9 @@ if [ -e "$2/$filename" ]; then
 else
     # If the file does not exist, directly copy the file
     cp "$1" "$2"
+    if [ $? -ne 0 ]; then
+        echo "Failed to copy the file."
+        exit 3
+    fi
     echo "File copied successfully."
 fi
