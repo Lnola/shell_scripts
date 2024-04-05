@@ -3,13 +3,21 @@
 # Path to the previously created script
 COPY_SCRIPT_PATH="$HOME/bin/scripts/copy-file-to-location.sh"
 
+# Determine the script's directory
+SCRIPT_DIR=$(dirname "$(realpath "$BASH_SOURCE")")
+
+# Default JSON file path, relative to the script's location
+DEFAULT_JSON_FILE="$SCRIPT_DIR/.config.json"
+
 # Check if the JSON file path is provided
 if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <path_to_json_file>"
-    exit 1
+    echo "No path provided. Using default JSON file path: $DEFAULT_JSON_FILE"
+    echo
+    JSON_FILE="$DEFAULT_JSON_FILE"
+else
+    JSON_FILE="$1"
 fi
 
-JSON_FILE="$1"
 # Determine the directory of the JSON file
 JSON_FILE_DIR=$(dirname "$(realpath "$JSON_FILE")")
 
