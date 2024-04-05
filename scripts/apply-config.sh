@@ -41,5 +41,13 @@ for ((i = 0 ; i < length ; i++)); do
         echo "Copying $src_abs to $dst_abs..."
         # Call the copy script with absolute source and destination paths
         "$COPY_SCRIPT_PATH" "$src_abs" "$dst_abs"
+        # Check if the copy operation failed
+        if [ $? -ne 0 ]; then
+            echo "Failed to copy $src_abs to $dst_abs"
+            exit 1
+        fi
     fi
 done
+
+# If the script reaches this point, all operations were successful
+exit 0
