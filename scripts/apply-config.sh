@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the previously created script
-COPY_SCRIPT_PATH="$HOME/bin/scripts/copy-file-to-location.sh"
+COPY_SCRIPT_PATH="$HOME/bin/scripts/copy-file-to-destination.sh"
 
 # Determine the script's directory
 SCRIPT_DIR=$(dirname "$(realpath "$BASH_SOURCE")")
