@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: Rewrite in python to passing list of staged files to the script
+# that way the apply is called only for the truly changed files
 # Path to the previously created script
 COPY_SCRIPT_PATH="$HOME/bin/scripts/copy-file-to-destination.sh"
 
