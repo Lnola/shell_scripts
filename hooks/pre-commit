@@ -2,4 +2,25 @@
 
 # To apply the changes run
 # $ apply-hooks ~/bin
+
 $HOME/bin/scripts/apply-config.sh
+
+# TODO: Turn on when apply-config.sh is ready
+# # Collect the staged files
+# STAGED_FILES=$(git diff --cached --name-only --diff-filter=d)
+
+# # Check if there are staged files
+# if [ -z "$STAGED_FILES" ]; then
+#     echo "No files are staged for commit"
+# else
+#     # Call the external script with the staged files as arguments
+#     $HOME/bin/scripts/apply-config.sh $HOME/bin/scripts/.config.json $STAGED_FILES
+#     if [ $? -ne 0 ]; then
+#         echo "Failed to apply the configuration to the staged files"
+#         exit 1
+#     fi
+# fi
+
+# # Exit successfully so the commit can proceed
+# exit 0
+
