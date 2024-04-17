@@ -52,15 +52,11 @@ def execute_applescript(script, **script_args):
 
 
 def main():
-    # Retrieve the folder path using AppleScript
     folderPath = execute_applescript(finder_script)
-
-    # Check if the path was returned
+    
     if folderPath:
-        # Execute the iTerm AppleScript with the folder path as an argument
         execute_applescript(iterm_script, path=folderPath)
     else:
-        # Print an error message if the path is empty
         print("No Finder window open and no folder selected")
 
 
