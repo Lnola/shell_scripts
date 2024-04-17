@@ -18,16 +18,15 @@ folderPath=$(
 osascript<<EOF
     tell application "Finder"
         set sel to the selection
+        # Check if a folder is selected and return its path
         if (count sel) > 0 then
-            set theFolder to item 1 of sel as alias
-            return POSIX path of theFolder
+            return POSIX path of (item 1 of sel as alias)
+        # Check if a folder is open and return its path
+        else if (count of Finder windows) > 0 then
+            return POSIX path of (target of front Finder window as alias)
+        # Return an empty string if no folder is open or selected
         else
-            if (count of Finder windows) > 0 then
-                set theFolder to (target of front Finder window as alias)
-                return POSIX path of theFolder
-            else
-                return ""
-            end if
+            return ""
         end if
     end tell
 EOF
