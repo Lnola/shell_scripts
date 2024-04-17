@@ -13,8 +13,7 @@
 # @raycast.description Open the current folder in Iterm2.
 # @raycast.author Luka Nola
 
-import subprocess
-
+from helpers.execute_applescript import execute_applescript
 
 # AppleScript to get the selected or current folder path from Finder or ""
 finder_script = """
@@ -42,18 +41,9 @@ end tell
 """
 
 
-def execute_applescript(script, **script_args):
-    """Executes AppleScript, substituting in any keyword arguments provided."""
-    script = script.format(**script_args)
-    process = subprocess.run(
-        ["osascript", "-e", script], text=True, capture_output=True
-    )
-    return process.stdout.strip()
-
-
 def main():
     folderPath = execute_applescript(finder_script)
-    
+
     if folderPath:
         execute_applescript(iterm_script, path=folderPath)
     else:
