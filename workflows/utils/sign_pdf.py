@@ -6,6 +6,7 @@ from reportlab.lib.pagesizes import letter
 import io
 import random
 import os
+from datetime import datetime
 
 
 def create_signature_page(image_paths, coordinates, page_width, page_height):
@@ -64,7 +65,7 @@ def sign_pdf(input_pdf):
 
     # Determine the output PDF file path
     input_folder = os.path.dirname(input_pdf)
-
-    output_pdf = os.path.join(input_folder, "output.pdf")
+    current_date = datetime.now().strftime("%m_%Y")
+    output_pdf = os.path.join(input_folder, f"{current_date}.pdf")
 
     add_signatures(input_pdf, output_pdf, image_folder, coordinates)
