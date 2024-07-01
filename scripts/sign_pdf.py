@@ -6,10 +6,10 @@ import io
 import random
 import os
 
-def create_signature_page(image_path, coordinates, page_width, page_height):
+def create_signature_page(image_paths, coordinates, page_width, page_height):
     packet = io.BytesIO()
     can = canvas.Canvas(packet, pagesize=letter)
-    for (x, y) in coordinates:
+    for image_path, (x, y) in zip(image_paths, coordinates):
         # Calculate random offsets
         x += page_width * 0.02 * (random.uniform(-1, 1))
         can.drawImage(image_path, x, y, width=70, height=35, mask='auto')  # Adjust width and height as needed
@@ -31,9 +31,9 @@ def add_signatures(input_pdf, output_pdf, image_folder, coordinates):
     num_pages_to_sign = 3
     for i in range(num_pages_to_sign):
         page = existing_pdf.pages[i]
-        # Select a random signature for each page
-        selected_image_path = random.choice(image_paths)
-        new_pdf = create_signature_page(selected_image_path, coordinates, page_width, page_height)
+        # Select unique random signatures for each coordinate on the page
+        selected_image_paths = random.sample(image_paths, len(coordinates))
+        new_pdf = create_signature_page(selected_image_paths, coordinates, page_width, page_height)
         page.merge_page(new_pdf.pages[0])
         output.add_page(page)
 
