@@ -4,7 +4,7 @@
 # @raycast.schemaVersion 1
 # @raycast.packageName Workflows
 # @raycast.title Sign Contract
-# @raycast.mode source
+# @raycast.mode silent
 
 # Optional parameters:
 # @raycast.icon 📁
