@@ -78,3 +78,6 @@ REMINDER: if ever rebuilding ssh accessed environments, make sure to remove loca
 # TODO: Update documentation according to the new changes
 
 # TODO: Fix folder structure before laptop switch
+
+
+TO use the signature add the missing signatures folder
