@@ -56,10 +56,15 @@ def add_signatures(input_pdf, output_pdf, image_folder, coordinates):
         output.write(outputStream)
 
 
-# Customize these variables
-input_pdf = "ugovor.pdf"
-output_pdf = "output.pdf"
-image_folder = "./signatures"  # Path to the folder containing signature images
-coordinates = [(430, 250), (430, 54)]  # Coordinates for each signature
+def sign_pdf(input_pdf):
+    # Customize these variables
+    # Path to the folder containing signature images
+    image_folder = "./assets/signatures"
+    coordinates = [(430, 250), (430, 54)]  # Coordinates for each signature
 
-add_signatures(input_pdf, output_pdf, image_folder, coordinates)
+    # Determine the output PDF file path
+    input_folder = os.path.dirname(input_pdf)
+
+    output_pdf = os.path.join(input_folder, "output.pdf")
+
+    add_signatures(input_pdf, output_pdf, image_folder, coordinates)
