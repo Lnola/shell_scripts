@@ -6,7 +6,19 @@ from reportlab.lib.pagesizes import letter
 import io
 import random
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
+
+
+def get_current_date():
+    now = datetime.now()
+    if now.day > 23:
+        next_month = now.replace(day=28) + timedelta(days=4)  # this will never fail
+        next_month = next_month.replace(day=1)
+        current_date = next_month.strftime("%m_%Y")
+    else:
+        current_date = now.strftime("%m_%Y")
+
+    return current_date
 
 
 def create_signature_page(image_paths, coordinates, page_width, page_height):
@@ -65,7 +77,7 @@ def sign_pdf(input_pdf):
 
     # Determine the output PDF file path
     input_folder = os.path.dirname(input_pdf)
-    current_date = datetime.now().strftime("%m_%Y")
+    current_date = get_current_date()
     output_pdf = os.path.join(input_folder, f"{current_date}.pdf")
 
     add_signatures(input_pdf, output_pdf, image_folder, coordinates)
