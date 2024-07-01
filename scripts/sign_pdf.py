@@ -4,26 +4,25 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 import io
 
-def create_signature_page(signature_text, width, height):
+def create_signature_page(image_paths, coordinates):
     packet = io.BytesIO()
     can = canvas.Canvas(packet, pagesize=letter)
-    can.drawString(width, height, signature_text)
+    for (image_path, (width, height)) in zip(image_paths, coordinates):
+        can.drawImage(image_path, width, height, width=100, height=50, mask='auto')  # Adjust width and height as needed
     can.save()
 
     packet.seek(0)
     new_pdf = PdfReader(packet)
     return new_pdf
 
-def add_signature(input_pdf, output_pdf, signature_text, page_number, x, y):
+def add_signatures(input_pdf, output_pdf, image_paths, coordinates):
     existing_pdf = PdfReader(open(input_pdf, "rb"))
     output = PdfWriter()
 
-    new_pdf = create_signature_page(signature_text, x, y)
-
     for i in range(len(existing_pdf.pages)):
         page = existing_pdf.pages[i]
-        if i == page_number:
-            page.merge_page(new_pdf.pages[0])
+        new_pdf = create_signature_page(image_paths, coordinates)
+        page.merge_page(new_pdf.pages[0])
         output.add_page(page)
 
     with open(output_pdf, "wb") as outputStream:
@@ -32,9 +31,7 @@ def add_signature(input_pdf, output_pdf, signature_text, page_number, x, y):
 # Customize these variables
 input_pdf = "input.pdf"
 output_pdf = "output.pdf"
-signature_text = "Your Signature"
-page_number = 2  # 0-indexed, so this is the 3rd page
-x = 100
-y = 100
+image_paths = ["signature.png", "signature.png"]  # Paths to your signature images
+coordinates = [(100, 100), (200, 200)]  # Coordinates for each signature
 
-add_signature(input_pdf, output_pdf, signature_text, page_number, x, y)
+add_signatures(input_pdf, output_pdf, image_paths, coordinates)
