@@ -28,14 +28,18 @@ def add_signatures(input_pdf, output_pdf, image_folder, coordinates):
     # Get all PNG files from the folder
     image_paths = [os.path.join(image_folder, f) for f in os.listdir(image_folder) if f.endswith(".png")]
 
-
-    for i in range(len(existing_pdf.pages)):
+    num_pages_to_sign = 3
+    for i in range(num_pages_to_sign):
         page = existing_pdf.pages[i]
         # Select a random signature for each page
         selected_image_path = random.choice(image_paths)
         new_pdf = create_signature_page(selected_image_path, coordinates, page_width, page_height)
         page.merge_page(new_pdf.pages[0])
         output.add_page(page)
+
+    # Add the remaining pages without signatures
+    for i in range(num_pages_to_sign, len(existing_pdf.pages)):
+        output.add_page(existing_pdf.pages[i])
 
     with open(output_pdf, "wb") as outputStream:
         output.write(outputStream)
