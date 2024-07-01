@@ -11,7 +11,7 @@ def create_signature_page(image_path, coordinates, page_width, page_height):
     can = canvas.Canvas(packet, pagesize=letter)
     for (x, y) in coordinates:
         # Calculate random offsets
-        x += page_width * 0.05 * (random.uniform(-1, 1))
+        x += page_width * 0.02 * (random.uniform(-1, 1))
         can.drawImage(image_path, x, y, width=70, height=35, mask='auto')  # Adjust width and height as needed
     can.save()
 
@@ -25,8 +25,9 @@ def add_signatures(input_pdf, output_pdf, image_folder, coordinates):
 
     page_width, page_height = letter
 
-    # Get all signature images from the folder
-    image_paths = sorted([os.path.join(image_folder, f"signature{i}.png") for i in range(1, 7)])
+    # Get all PNG files from the folder
+    image_paths = [os.path.join(image_folder, f) for f in os.listdir(image_folder) if f.endswith(".png")]
+
 
     for i in range(len(existing_pdf.pages)):
         page = existing_pdf.pages[i]
