@@ -31,9 +31,11 @@ def wait_for_app_to_launch(app_name, max_wait=5):
     elapsed_time = 0
     while elapsed_time < max_wait:
         if app_is_running(app_name):
+            print(f"{app_name} is running")
             return True
         time.sleep(1)
         elapsed_time += 1
+    print(f"Failed to start {app_name}")
     return False
 
 
@@ -41,21 +43,18 @@ print("Starting the script")
 
 # Activate applications
 subprocess.run(["open", "-a", "Arc"])
-wait_for_app_to_launch("Arc")
-
 subprocess.run(["open", "-a", "Slack"])
-wait_for_app_to_launch("Slack")
-
 subprocess.run(["open", "-a", "Spotify"])
-wait_for_app_to_launch("Spotify")
-
 subprocess.run(["open", "-a", "iTerm"])
-wait_for_app_to_launch("iTerm")
 
+wait_for_app_to_launch("Arc")
+wait_for_app_to_launch("Slack")
+wait_for_app_to_launch("Spotify")
+wait_for_app_to_launch("iTerm2")
 
 print("Opened apps, moving them to the correct spaces")
 
-# # Move applications to spaces
+# Move applications to spaces
 subprocess.run(["utils/move_app_to_space.sh", "Spotify", "1"])
 subprocess.run(["utils/move_app_to_space.sh", "Slack", "2"])
 subprocess.run(["utils/move_app_to_space.sh", "Arc", "3"])
@@ -63,7 +62,7 @@ subprocess.run(["utils/move_app_to_space.sh", "iTerm", "5"])
 
 time.sleep(1)
 
-subprocess.run(["arc/switch_space.sh", "2"])
+# subprocess.run(["arc/switch_space.sh", "2"])
 
 # time.sleep(1)
 
