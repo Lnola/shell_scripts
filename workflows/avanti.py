@@ -3,8 +3,8 @@
 # Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.packageName Workflows
-# @raycast.title av
-# @raycast.mode fullOutput
+# @raycast.title avanti
+# @raycast.mode silent
 
 # Optional parameters:
 # @raycast.icon ./assets/avanti.png
