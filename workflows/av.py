@@ -53,6 +53,17 @@ def switch_arc_space():
     time.sleep(1)
 
 
+iterm_script = """
+tell application "iTerm"
+    activate
+    tell current session of current window to write text "z sol && code ."
+    tell application "System Events" to keystroke "avst"
+    delay 1
+    activate
+end tell
+"""
+
+
 print("Starting the script")
 
 # Activate applications
@@ -67,28 +78,10 @@ wait_for_apps_to_launch(apps_to_launch)
 
 time.sleep(1)
 
-
 move_app_to_space("Spotify", "1")
 move_app_to_space("Slack", "2")
 move_app_to_space("Arc", "3", switch_arc_space)
 move_app_to_space("iTerm", "5")
 
-
-# time.sleep(1)
-
-# # Open iTerm and execute commands
-# subprocess.run(
-#     [
-#         "osascript",
-#         "-e",
-#         """
-# tell application "iTerm"
-#     activate
-#     tell current session of current window to write text "z sol && code ."
-#     tell application "System Events" to keystroke "avst"
-#     delay 1
-#     activate
-# end tell
-# """,
-#     ]
-# )
+# Open iTerm and execute commands
+subprocess.run(["osascript", "-e", iterm_script])
