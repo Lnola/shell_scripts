@@ -26,16 +26,16 @@ def app_is_running(app_name):
     return False
 
 
-# Function to wait until an application is running
-def wait_for_app_to_launch(app_name, max_wait=5):
-    elapsed_time = 0
-    while elapsed_time < max_wait:
-        if app_is_running(app_name):
-            print(f"{app_name} is running")
+# Function to wait until all applications in the list are running
+def wait_for_apps_to_launch(app_names, max_wait=5):
+    start_time = time.time()
+    while time.time() - start_time < max_wait:
+        remaining_apps = [app for app in app_names if not app_is_running(app)]
+        if not remaining_apps:
+            print(f"All applications are running: {', '.join(app_names)}")
             return True
         time.sleep(1)
-        elapsed_time += 1
-    print(f"Failed to start {app_name}")
+    print(f"Failed to start all applications: {', '.join(remaining_apps)}")
     return False
 
 
@@ -47,18 +47,10 @@ subprocess.run(["open", "-a", "Slack"])
 subprocess.run(["open", "-a", "Spotify"])
 subprocess.run(["open", "-a", "iTerm"])
 
-wait_for_app_to_launch("Arc")
-wait_for_app_to_launch("Slack")
-wait_for_app_to_launch("Spotify")
-wait_for_app_to_launch("iTerm2")
+# List of applications to wait for
+apps_to_launch = ["Arc", "Slack", "Spotify", "iTerm2"]
+wait_for_apps_to_launch(apps_to_launch)
 
-print("Opened apps, moving them to the correct spaces")
-
-# Move applications to spaces
-subprocess.run(["utils/move_app_to_space.sh", "Spotify", "1"])
-subprocess.run(["utils/move_app_to_space.sh", "Slack", "2"])
-subprocess.run(["utils/move_app_to_space.sh", "Arc", "3"])
-subprocess.run(["utils/move_app_to_space.sh", "iTerm", "5"])
 
 time.sleep(1)
 
