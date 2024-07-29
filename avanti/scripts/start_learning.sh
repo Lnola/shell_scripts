@@ -33,14 +33,15 @@ osascript<<EOF
         end tell
 
         tell third session of current tab of current window
-            write text "z learn && code ."
+            write text "z learn"
+            # write text "z learn && code ."
         end tell
     end tell
 
     delay 1
 
-    tell application "System Events" 
-        key code $keycode using {shift down, option down, control down}
-    end tell
+    # tell application "System Events" 
+    #     key code $keycode using {shift down, option down, control down}
+    # end tell
 EOF
 
