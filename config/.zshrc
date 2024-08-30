@@ -184,4 +184,5 @@ alias ave2e="av test:e2e"
 alias avstp="av stop"
 alias avrms="av migration:seed"
 alias avstl="av start:learning"
+alias avtd="av turbo:dev"
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
