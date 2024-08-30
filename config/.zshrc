@@ -188,3 +188,5 @@ alias avtd="av turbo:dev"
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
 
 alias dnode="npx npkill"
+
+eval "$(starship init zsh)"
