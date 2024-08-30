@@ -186,3 +186,5 @@ alias avrms="av migration:seed"
 alias avstl="av start:learning"
 alias avtd="av turbo:dev"
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
+
+alias dnode="npx npkill"
