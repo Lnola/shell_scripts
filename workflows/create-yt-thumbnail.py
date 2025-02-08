@@ -8,7 +8,7 @@
 
 # Optional parameters:
 # @raycast.icon ./assets/youtube.png
-# @raycast.argument1 { "type": "text", "placeholder": "Title" }
+# @raycast.argument1 { "type": "text", "placeholder": "Titles" }
 
 # Documentation:
 # @raycast.description Create YouTube thumbnails with the argument titles.
@@ -55,5 +55,7 @@ if __name__ == "__main__":
     parser.add_argument("titles", type=str, nargs="+", help="Titles for thumbnails")
     args = parser.parse_args()
 
-    for title in args.titles:
+    # This way of interpreting comes from raycast understanding multiple strings as a single argument
+    # To call this script from terminal, use: python create-yt-thumbnail.py "Title1 Title2"
+    for title in args.titles[0].split(" "):
         create_thumbnail(title)
