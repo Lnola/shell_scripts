@@ -51,7 +51,6 @@ def create_thumbnail(title, index, total, rainbow=False):
     draw.text((text_x, text_y), title, fill="white", font=font)
     filename = clean_filename(title) + ".png"
     img.save(os.path.join(os.path.expanduser("~"), "Desktop", filename))
-    img.show()
 
 
 if __name__ == "__main__":
