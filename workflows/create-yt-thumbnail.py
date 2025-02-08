@@ -42,7 +42,7 @@ def create_thumbnail(title):
 
     text_size = draw.textbbox((0, 0), title, font=font)
     text_x = (SIZE_X - (text_size[2] - text_size[0])) / 2
-    text_y = (SIZE_Y - (text_size[3] - text_size[1] + FONT_SIZE / 2)) / 2
+    text_y = (SIZE_Y - (text_size[3] - text_size[1])) / 2
 
     draw.text((text_x, text_y), title, fill="white", font=font)
     filename = clean_filename(title) + ".png"
