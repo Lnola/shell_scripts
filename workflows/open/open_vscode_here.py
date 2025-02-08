@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.packageName Open VSCode
+# @raycast.packageName Open
 # @raycast.title Open VSCode Here
 # @raycast.mode silent
 

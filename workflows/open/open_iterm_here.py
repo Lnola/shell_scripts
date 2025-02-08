@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.packageName Iterm2
+# @raycast.packageName Open
 # @raycast.title Open iTerm Here
 # @raycast.mode silent
 
