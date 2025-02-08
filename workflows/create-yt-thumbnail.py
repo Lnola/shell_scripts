@@ -56,6 +56,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # This way of interpreting comes from raycast understanding multiple strings as a single argument
-    # To call this script from terminal, use: python create-yt-thumbnail.py "Title1 Title2"
-    for title in args.titles[0].split(" "):
+    # To call this script from terminal, use: python create-yt-thumbnail.py "Title1,Title2"
+    for title in args.titles[0].split(","):
         create_thumbnail(title)
