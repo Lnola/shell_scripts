@@ -1,3 +1,19 @@
+#!/Users/lnola/python-venv/bin/python
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.packageName Workflows
+# @raycast.title Create YouTube Thumbnail
+# @raycast.mode silent
+
+# Optional parameters:
+# @raycast.icon ./assets/youtube.png
+# @raycast.argument1 { "type": "text", "placeholder": "Title" }
+
+# Documentation:
+# @raycast.description Create YouTube thumbnails with the argument titles.
+# @raycast.author Luka Nola
+
 from PIL import Image, ImageDraw, ImageFont
 import random, os, argparse, re
 
