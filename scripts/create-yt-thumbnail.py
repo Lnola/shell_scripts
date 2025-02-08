@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw, ImageFont
-import random, os, argparse
+import random, os, argparse, re
 
 SIZE_X = 1280
 SIZE_Y = 720
@@ -9,6 +9,10 @@ FONT_PATH = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 
 def generate_color():
     return tuple(random.randint(0, 255) for _ in range(3))
+
+
+def clean_filename(title):
+    return re.sub(r"[^a-zA-Z0-9]", "_", title)
 
 
 def create_thumbnail(title):
@@ -25,13 +29,15 @@ def create_thumbnail(title):
     text_y = (SIZE_Y - (text_size[3] - text_size[1] + FONT_SIZE / 2)) / 2
 
     draw.text((text_x, text_y), title, fill="white", font=font)
-    img.save(os.path.join(os.path.expanduser("~"), "Desktop", "thumbnail.png"))
+    filename = clean_filename(title) + ".png"
+    img.save(os.path.join(os.path.expanduser("~"), "Desktop", filename))
     img.show()
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("title", type=str, help="Title text for the thumbnail")
+    parser.add_argument("titles", type=str, nargs="+", help="Titles for thumbnails")
     args = parser.parse_args()
 
-    create_thumbnail(args.title)
+    for title in args.titles:
+        create_thumbnail(title)
