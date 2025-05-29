@@ -129,7 +129,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# <<<<< ALIAS >>>>>
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -138,11 +137,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias zshconfig="code ~/.zshrc"
-alias lst="tree -L 1"
-alias lst2="tree -L 2"
-# <<<<< ALIAS >>>>>
 
 # TODO: extract into separate files
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
@@ -169,9 +163,6 @@ alias avstl="av start:learning"
 alias avtd="av turbo:dev"
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
 
-alias dnode="npx npkill"
-
-alias pyvenv="source ~/.python/venv/bin/activate"
-
+source ~/.zsh_alias
 source ~/.zsh_env
 source ~/.starship.zsh

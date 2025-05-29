@@ -1,0 +1,10 @@
+# common
+alias zshconfig="code ~/.zshrc"
+alias lst="tree -L 1"
+alias lst2="tree -L 2"
+
+# node
+alias dnode="npx npkill"
+
+# python
+alias pyvenv="source ~/.python/venv/bin/activate"
