@@ -27,10 +27,9 @@ def get_staged_files():
             check=True,
         )
         BASE_DIR = Path(__file__).resolve().parent.parent.parent
-        staged_files = [
+        return [
             (BASE_DIR / line.strip()).resolve() for line in result.stdout.splitlines()
         ]
-        return staged_files
     except subprocess.CalledProcessError:
         print("❌ Error running git diff. Are you in a git repo?")
         return []
@@ -42,9 +41,7 @@ def get_config_sources(config_file: str):
     return [Path(item["source"]).expanduser().resolve() for item in mappings]
 
 
-def main():
-    config_sources = set(get_config_sources(".config.json"))
-    staged_files = get_staged_files()
+def log_staged_and_config_files(staged_files, config_sources):
     print("Staged files:")
     for file in staged_files:
         print(f"- {file}")
@@ -52,14 +49,20 @@ def main():
     for source in config_sources:
         print(f"- {source}")
 
+
+def main():
+    config_sources = set(get_config_sources(".config.json"))
+    staged_files = get_staged_files()
+    log_staged_and_config_files(staged_files, config_sources)
+
     matching = [str(file) for file in staged_files if file in config_sources]
 
-    if matching:
-        print("✅ Staged files found in .config.json:")
-        for f in matching:
-            print(f"- {f}")
-    else:
-        print("ℹ️ No staged files match sources in .config.json.")
+    if not matching:
+        return print("ℹ️ No staged files match sources in .config.json.")
+
+    print("✅ Staged files found in .config.json:")
+    for f in matching:
+        print(f"- {f}")
 
 
 if __name__ == "__main__":
