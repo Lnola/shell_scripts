@@ -16,10 +16,25 @@
     "destination": "~/.config/starship.toml"
   },
   {
-    "source": "~/bin/config/zsh/scripts/manage-nvmrc-with-fnm.zsh",
-    "destination": "~/.zsh_scripts/manage-nvmrc-with-fnm.zsh"
+    "source": "~/bin/config/starship/.starship.zsh",
+    "destination": "~/.starship.zsh"
   },
-
+  {
+    "source": "~/bin/config/zsh/scripts/alias_sub_folders.zsh",
+    "destination": "~/.zsh_scripts/alias_sub_folders.zsh"
+  },
+  {
+    "source": "~/bin/config/zsh/scripts/manage_nvmrc_with_fnm.zsh",
+    "destination": "~/.zsh_scripts/manage_nvmrc_with_fnm.zsh"
+  },
+  {
+    "source": "~/bin/config/zsh/.zsh_alias",
+    "destination": "~/.zsh_alias"
+  },
+  {
+    "source": "~/bin/config/zsh/.zsh_env",
+    "destination": "~/.zsh_env"
+  },
   {
     "source": "~/bin/config/zsh/.zshrc",
     "destination": "~/.zshrc"
