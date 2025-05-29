@@ -82,4 +82,13 @@ REMINDER: if ever rebuilding ssh accessed environments, make sure to remove loca
 TO use the signature add the missing signatures folder
 
 make sure to have this in zshrc to run scripts
+
+```sh
 export PYTHONPATH="$HOME/bin/scripts"
+```
+
+Do this to apply the hooks
+
+```sh
+$ git config core.hooksPath hooks
+```
