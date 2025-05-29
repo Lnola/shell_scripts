@@ -171,8 +171,7 @@ alias avtd="av turbo:dev"
 
 alias dnode="npx npkill"
 
-eval "$(starship init zsh)"
-
 alias pyvenv="source ~/.python/venv/bin/activate"
 
 source ~/.zsh_env
+source ~/.starship.zsh
