@@ -1,18 +1,3 @@
-#!/Users/lnola/.python/venv/bin/python
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.packageName Apply Config
-# @raycast.title Apply Config
-# @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon 🛠️
-
-# Documentation:
-# @raycast.description Apply configuration by copying files from source to destination.
-# @raycast.author Luka Nola
-
 import json
 import subprocess
 from pathlib import Path
@@ -55,7 +40,7 @@ def log_staged_and_config_files(staged_files, config_sources):
     print()
 
 
-def main():
+def check_staged_files():
     config_map = get_config_entries(".config.json")
     config_sources = set(config_map.keys())
     staged_files = get_staged_files()
@@ -70,7 +55,3 @@ def main():
     print("✅ Matching .config.json entries for staged files:")
     for file in matching:
         print(json.dumps(config_map[file], indent=2))
-
-
-if __name__ == "__main__":
-    main()
