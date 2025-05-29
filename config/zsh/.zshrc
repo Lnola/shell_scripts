@@ -191,5 +191,5 @@ eval "$(starship init zsh)"
 export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 export JAVA_HOME=$(/usr/libexec/java_home -v 21)
 
-# source ~/.python/venv/bin/activate
+alias pyvenv="source ~/.python/venv/bin/activate"
 export PYTHONPATH="$HOME/bin/scripts"
