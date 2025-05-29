@@ -54,4 +54,5 @@ def check_staged_files():
 
     print("✅ Matching .config.json entries for staged files:")
     for file in matching:
-        print(json.dumps(config_map[file], indent=2))
+        print(f"{json.dumps(config_map[file], indent=2)}\n")
+    return [config_map[file] for file in matching]
