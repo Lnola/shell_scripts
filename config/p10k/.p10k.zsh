@@ -1836,3 +1836,6 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 # Source the color configuration file
 source .zsh_config/.color_config.p10k.zsh
+
+# Generated for envman. Do not edit. Move to ~/.zshrc if it's not working - moved here on 29.5.2025
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
