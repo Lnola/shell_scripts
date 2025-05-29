@@ -1,18 +1,3 @@
-#!/Users/lnola/.python/venv/bin/python
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.packageName Apply Config
-# @raycast.title Apply Config
-# @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon 🛠️
-
-# Documentation:
-# @raycast.description Apply configuration by copying files from source to destination.
-# @raycast.author Luka Nola
-
 import json
 import shutil
 import subprocess
@@ -65,7 +50,3 @@ def copy_files(config_file: str = ".config.json"):
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dst)
         print(f"✅ Copied {src} → {dst}")
-
-
-if __name__ == "__main__":
-    copy_files()
