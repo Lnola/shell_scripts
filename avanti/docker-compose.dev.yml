@@ -1,0 +1,30 @@
+x-env: &default-env
+  DATABASE_PORT: ${DATABASE_PORT:?err}
+  DATABASE_NAME: ${DATABASE_NAME:?err}
+  DATABASE_USER: ${DATABASE_USER:?err}
+  DATABASE_PASSWORD: ${DATABASE_PASSWORD:?err}
+  MONGO_USERNAME: ${MONGO_USERNAME:?err}
+  MONGO_PASSWORD: ${MONGO_PASSWORD:?err}
+  MONGO_PORT: ${MONGO_PORT:?err}
+
+services:
+  mongo:
+    image: mongo:5.0.6
+    container_name: avanti_mongo
+    restart: on-failure:3
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME:?err}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:?err}
+    ports:
+      - '${MONGO_PORT:?err}:27017'
+
+  postgres:
+    image: postgres:14.2
+    container_name: avanti_postgres
+    restart: on-failure:3
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME:?err}
+      POSTGRES_USER: ${DATABASE_USER:?err}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?err}
+    ports:
+      - '${DATABASE_PORT:?err}:5432'
