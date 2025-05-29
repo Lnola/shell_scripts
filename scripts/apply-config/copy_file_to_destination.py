@@ -29,6 +29,9 @@ def show_diff(src: Path, dst: Path):
 
 
 def copy_files(mappings):
+    if not mappings:
+        print("ℹ️ No mappings provided.")
+        return
     for item in mappings:
         src = Path(item["source"]).expanduser().resolve()
         dst = Path(item["destination"]).expanduser().resolve()
