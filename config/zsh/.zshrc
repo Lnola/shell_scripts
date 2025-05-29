@@ -110,6 +110,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 # <<<<< PLUGINS >>>>>
 
+# <<<<< SUGGESTIONS >>>>>
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -134,7 +135,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# <<<<< SUGGESTIONS >>>>>
 
+# <<<<< CUSTOM CONFIG >>>>>
 source ~/.zsh_alias
 source ~/.zsh_env
 source ~/.starship.zsh
+# <<<<< CUSTOM CONFIG >>>>>
