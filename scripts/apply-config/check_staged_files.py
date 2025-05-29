@@ -41,7 +41,8 @@ def log_staged_and_config_files(staged_files, config_sources):
 
 
 def check_staged_files():
-    config_map = get_config_entries(".config.json")
+    config_file_path = Path(__file__).resolve().parent / ".config.json"
+    config_map = get_config_entries(config_file_path)
     config_sources = set(config_map.keys())
     staged_files = get_staged_files()
 
