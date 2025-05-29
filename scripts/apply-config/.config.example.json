@@ -1,10 +1,27 @@
 [
   {
-    "source": "../test/source/1.txt",
-    "destination": "../test/destination"
+    "source": "~/bin/config/amethyst/.amethyst.yml",
+    "destination": "~/.amethyst.yml"
   },
   {
-    "source": "../test/source/3.txt",
-    "destination": "../test/destination"
+    "source": "~/bin/config/p10k/.color_config.p10k.zsh",
+    "destination": "~/.zsh_config/.color_config.p10k.zsh"
+  },
+  {
+    "source": "~/bin/config/p10k/.p10k.zsh",
+    "destination": "~/.p10k.zsh"
+  },
+  {
+    "source": "~/bin/config/starship/.starship.toml",
+    "destination": "~/.config/starship.toml"
+  },
+  {
+    "source": "~/bin/config/zsh/scripts/manage-nvmrc-with-fnm.zsh",
+    "destination": "~/.zsh_scripts/manage-nvmrc-with-fnm.zsh"
+  },
+
+  {
+    "source": "~/bin/config/zsh/.zshrc",
+    "destination": "~/.zshrc"
   }
 ]
