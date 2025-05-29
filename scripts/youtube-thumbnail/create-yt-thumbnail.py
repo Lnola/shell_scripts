@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.packageName Workflows
+# @raycast.packageName Youtube Thumbnail
 # @raycast.title Create YouTube Thumbnail
 # @raycast.mode silent
 

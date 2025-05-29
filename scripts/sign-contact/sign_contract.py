@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.packageName Workflows
+# @raycast.packageName Sign Contract
 # @raycast.title Sign Contract
 # @raycast.mode silent
 
