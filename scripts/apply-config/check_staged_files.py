@@ -35,10 +35,10 @@ def get_staged_files():
         return []
 
 
-def get_config_sources(config_file: str):
+def get_config_entries(config_file: str):
     with open(config_file, "r") as f:
         mappings = json.load(f)
-    return [Path(item["source"]).expanduser().resolve() for item in mappings]
+    return {Path(item["source"]).expanduser().resolve(): item for item in mappings}
 
 
 def log_staged_and_config_files(staged_files, config_sources):
@@ -51,18 +51,20 @@ def log_staged_and_config_files(staged_files, config_sources):
 
 
 def main():
-    config_sources = set(get_config_sources(".config.json"))
+    config_map = get_config_entries(".config.json")
+    config_sources = set(config_map.keys())
     staged_files = get_staged_files()
+
     log_staged_and_config_files(staged_files, config_sources)
 
-    matching = [str(file) for file in staged_files if file in config_sources]
+    matching = [file for file in staged_files if file in config_sources]
 
     if not matching:
         return print("ℹ️ No staged files match sources in .config.json.")
 
-    print("✅ Staged files found in .config.json:")
-    for f in matching:
-        print(f"- {f}")
+    print("✅ Matching .config.json entries for staged files:")
+    for file in matching:
+        print(json.dumps(config_map[file], indent=2))
 
 
 if __name__ == "__main__":
