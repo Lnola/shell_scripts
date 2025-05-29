@@ -14,7 +14,7 @@
 # @raycast.author Luka Nola
 
 
-from utils import sign_pdf
+from sign_pdf import sign_pdf
 import subprocess
 
 
@@ -44,4 +44,4 @@ if __name__ == "__main__":
         print(file_path)
         print(f"Selected file path: {file_path}")
         # Call the global script
-        sign_pdf.sign_pdf(file_path)
+        sign_pdf(file_path)
