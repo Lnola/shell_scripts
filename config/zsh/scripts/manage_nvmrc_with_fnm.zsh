@@ -1,8 +1,3 @@
-# ZSH
-
-# WARNING: DO NOT CHANGE MANUALLY!
-# USE THE ~/bin FOLDER INSTEAD
-
 autoload -U add-zsh-hook
 
 # place default node version under $HOME/.node-version

@@ -1,6 +1,3 @@
-# WARNING: DO NOT CHANGE MANUALLY!
-# USE THE ~/bin FOLDER INSTEAD
-
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
