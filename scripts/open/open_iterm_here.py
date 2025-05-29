@@ -7,7 +7,7 @@
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon ../assets/iterm.png
+# @raycast.icon ../../assets/icons/iterm.png
 
 # Documentation:
 # @raycast.description Open the current folder in Iterm2.

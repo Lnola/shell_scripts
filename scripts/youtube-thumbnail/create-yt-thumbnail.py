@@ -7,7 +7,7 @@
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon ../../assets/youtube.png
+# @raycast.icon ../../assets/icons/youtube.png
 # @raycast.argument1 { "type": "text", "placeholder": "Titles" }
 # @raycast.argument2 { "type": "text", "placeholder": "Rainbow (true/false)" }
 

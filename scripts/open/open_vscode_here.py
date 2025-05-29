@@ -7,7 +7,7 @@
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon ../assets/vscode.png
+# @raycast.icon ../../assets/icons/vscode.png
 
 # Documentation:
 # @raycast.description Open the current folder in Visual Studio Code.
