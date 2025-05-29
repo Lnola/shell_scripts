@@ -165,7 +165,7 @@ alias lst2="tree -L 2"
 # TODO: sync with the real file
 # <<<<< CUSTOM GLOBAL SCRIPTS >>>>>
 # To add a new subfolder access just add the name in the list
-sub_folders=("avanti" "environments" "scripts")
+sub_folders=()
 
 for sub_folder in "${sub_folders[@]}"; do
     # Add all ~/bin/ subfolders to path
