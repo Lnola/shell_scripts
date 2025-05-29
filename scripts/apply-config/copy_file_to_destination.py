@@ -28,10 +28,7 @@ def show_diff(src: Path, dst: Path):
         print(f"❌ Could not show diff: {e}")
 
 
-def copy_files(config_file: str = ".config.json"):
-    with open(config_file, "r") as f:
-        mappings = json.load(f)
-
+def copy_files(mappings):
     for item in mappings:
         src = Path(item["source"]).expanduser().resolve()
         dst = Path(item["destination"]).expanduser().resolve()
