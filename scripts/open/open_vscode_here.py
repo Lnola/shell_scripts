@@ -13,7 +13,7 @@
 # @raycast.description Open the current folder in Visual Studio Code.
 # @raycast.author Luka Nola
 
-from helpers.execute_applescript import execute_applescript
+from scripts.utils.execute_applescript import execute_applescript
 from helpers.finder import finder_script
 
 
