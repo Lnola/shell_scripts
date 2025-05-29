@@ -70,7 +70,7 @@ def add_signatures(input_pdf, output_pdf, image_folder, coordinates):
 def sign_pdf(input_pdf):
     # Customize these variables
     # Path to the folder containing signature images
-    image_folder = "./assets/signatures"
+    image_folder = "../../assets/signatures"
     coordinates = [(430, 250), (430, 54)]  # Coordinates for each signature
 
     # Determine the output PDF file path
