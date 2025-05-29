@@ -191,7 +191,7 @@ alias dnode="npx npkill"
 
 eval "$(starship init zsh)"
 
-TODO: remove this when java is not needed anymore
+# TODO: remove this when java is not needed anymore
 export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 export JAVA_HOME=$(/usr/libexec/java_home -v 21)
 
