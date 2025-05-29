@@ -1,4 +1,4 @@
-#!/Users/lnola/.python/python-venv/bin/python
+#!/Users/lnola/.python/venv/bin/python
 
 # Required parameters:
 # @raycast.schemaVersion 1
