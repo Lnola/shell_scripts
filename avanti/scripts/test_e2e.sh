@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 osascript<<EOF
     tell application "iTerm"
@@ -30,7 +30,7 @@ osascript<<EOF
         # Wait for postgres to start before starting the apps
         set var_wait to 0
         repeat until (var_wait = 1)
-            if (text of third session of current tab of current window contains "Successfully started `postgresql@14`") then
+            if (text of third session of current tab of current window contains "Successfully started $(postgresql@14)") then
                 set var_wait to 1
             end if
         end repeat

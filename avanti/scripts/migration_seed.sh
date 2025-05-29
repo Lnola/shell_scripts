@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 # Check the current working directory matches the location
 location="/Projects/solution-tree-platform"

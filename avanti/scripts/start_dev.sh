@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 osascript<<EOF
     tell application "iTerm"
