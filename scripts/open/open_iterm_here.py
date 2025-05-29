@@ -14,7 +14,8 @@
 # @raycast.author Luka Nola
 
 from scripts.utils.execute_applescript import execute_applescript
-from helpers.finder import finder_script
+from finder import finder_script
+
 
 # AppleScript for opening iTerm2 and executing commands
 iterm_script = """

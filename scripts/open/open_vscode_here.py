@@ -14,15 +14,15 @@
 # @raycast.author Luka Nola
 
 from scripts.utils.execute_applescript import execute_applescript
-from helpers.finder import finder_script
+from finder import finder_script
 
 
 # AppleScript for opening Visual Studio Code in the specified directory
 vscode_script = """
-    tell application "Visual Studio Code"
-        activate
-        open POSIX file "{path}"
-    end tell
+tell application "Visual Studio Code"
+    activate
+    open POSIX file "{path}"
+end tell
 """
 
 
