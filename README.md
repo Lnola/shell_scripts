@@ -79,5 +79,7 @@ REMINDER: if ever rebuilding ssh accessed environments, make sure to remove loca
 
 # TODO: Fix folder structure before laptop switch
 
-
 TO use the signature add the missing signatures folder
+
+make sure to have this in zshrc to run scripts
+export PYTHONPATH="$HOME/bin/scripts"
