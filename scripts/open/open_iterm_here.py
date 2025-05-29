@@ -13,7 +13,7 @@
 # @raycast.description Open the current folder in Iterm2.
 # @raycast.author Luka Nola
 
-from scripts.utils.execute_applescript import execute_applescript
+from utils.execute_applescript import execute_applescript
 from finder import finder_script
 
 
