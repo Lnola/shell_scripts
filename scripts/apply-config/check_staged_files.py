@@ -43,11 +43,16 @@ def get_config_entries(config_file: str):
 
 def log_staged_and_config_files(staged_files, config_sources):
     print("Staged files:")
+    if not staged_files:
+        print("ℹ️ No staged files found.")
     for file in staged_files:
         print(f"- {file}")
     print("\nSources in .config.json:")
+    if not config_sources:
+        print("ℹ️ No sources found in .config.json.")
     for source in config_sources:
         print(f"- {source}")
+    print()
 
 
 def main():
