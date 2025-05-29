@@ -129,16 +129,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# pnpm
-export PNPM_HOME="/Users/lnola/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
-eval "$(fnm env --use-on-cd)"
-export FNM_RESOLVE_ENGINES="true"
-
 # <<<<< ALIAS >>>>>
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -183,9 +173,6 @@ alias dnode="npx npkill"
 
 eval "$(starship init zsh)"
 
-# TODO: remove this when java is not needed anymore
-export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
-export JAVA_HOME=$(/usr/libexec/java_home -v 21)
-
 alias pyvenv="source ~/.python/venv/bin/activate"
-export PYTHONPATH="$HOME/bin/scripts"
+
+source ~/.zsh_env
