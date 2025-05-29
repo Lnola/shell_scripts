@@ -1,9 +1,6 @@
 # WARNING: DO NOT CHANGE MANUALLY!
 # USE THE ~/bin FOLDER INSTEAD
 
-# To apply the changes manually run
-# $ copy-file-to-destination --with-check ~/bin/config/.starship.toml ~/.config/starship.toml
-
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """

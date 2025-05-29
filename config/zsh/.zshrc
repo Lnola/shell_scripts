@@ -1,9 +1,6 @@
 # WARNING: DO NOT CHANGE MANUALLY!
 # USE THE ~/bin FOLDER INSTEAD
 
-# To apply the changes manually run
-# $ copy-file-to-destination --with-check ~/bin/config/.zshrc ~/
-
 # <<<<< P10K >>>>>
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]

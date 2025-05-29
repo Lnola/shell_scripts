@@ -3,9 +3,6 @@
 # WARNING: DO NOT CHANGE MANUALLY!
 # USE THE ~/bin FOLDER INSTEAD
 
-# To apply the changes manually run
-# $ copy-file-to-destination --with-check ~/bin/config/.zsh_scripts/manage-nvmrc-with-fnm.sh ~/.zsh_scripts
-
 autoload -U add-zsh-hook
 
 # place default node version under $HOME/.node-version
