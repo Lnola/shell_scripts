@@ -16,3 +16,6 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 21)
 
 # python
 export PYTHONPATH="$HOME/bin/scripts"
+
+# flutterfire config
+  export PATH="$PATH":"$HOME/.pub-cache/bin"
