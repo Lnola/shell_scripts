@@ -11,8 +11,8 @@ export FNM_RESOLVE_ENGINES="true"
 
 # java
 # TODO: remove this once java is not needed anymore
-export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
-export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+# export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
+# export JAVA_HOME=$(/usr/libexec/java_home -v 21)
 
 # python
 export PYTHONPATH="$HOME/bin/scripts"
