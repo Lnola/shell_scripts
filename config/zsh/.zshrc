@@ -142,3 +142,5 @@ source ~/.zsh_alias
 source ~/.zsh_env
 source ~/.starship.zsh
 # <<<<< CUSTOM CONFIG >>>>>
+
+echo "hello"
