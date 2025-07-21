@@ -8,3 +8,7 @@ alias dnode="npx npkill"
 
 # python
 alias pyvenv="source ~/.python/venv/bin/activate"
+
+# ocrmypdf
+alias docker_ocrmypdf='docker run --rm -i jbarlow83/ocrmypdf-alpine'
+
