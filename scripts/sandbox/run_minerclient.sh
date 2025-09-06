@@ -14,4 +14,4 @@
 # @raycast.author Luka Nola
 
 SANDBOX=~/Sandboxes/MinerClient
-HOME="$SANDBOX" java -Duser.home="$SANDBOX" -jar MinerClient.jar
+HOME="$SANDBOX" java -Duser.home="$SANDBOX" -jar "$SANDBOX/MinerClient.jar"
