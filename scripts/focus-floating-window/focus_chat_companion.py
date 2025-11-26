@@ -1,4 +1,18 @@
-#!/usr/bin/env python3
+#!/Users/lnola/.python/venv/bin/python
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.packageName Focus
+# @raycast.title Focus Chat Companion
+# @raycast.mode silent
+
+# Optional parameters:
+# @raycast.icon 🖱️
+
+# Documentation:
+# @raycast.description Focus the Chat Companion text input.
+# @raycast.author Luka Nola
+
 import subprocess
 
 bounds = (
