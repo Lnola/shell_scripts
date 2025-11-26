@@ -15,7 +15,7 @@ bounds = (
 )
 
 x0, y0, x1, y1 = map(int, bounds)
-cx = (x0 + x1) // 2
-cy = (y0 + y1) // 2
+cx = x1 - 1600
+cy = y1 - 160
 
 subprocess.run(["/opt/homebrew/bin/cliclick", f"c:{cx},{cy}"], check=True)
