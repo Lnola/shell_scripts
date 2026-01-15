@@ -22,3 +22,7 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # Go
 export PATH="$PATH:$HOME/go/bin"
+
+# Anthropic
+export ANTHROPIC_MODEL=haiku                    # Default to cheapest model
+export DISABLE_NON_ESSENTIAL_MODEL_CALLS=1      # Skip "flavor text" calls
