@@ -15,8 +15,8 @@
 
 # layouts - Ordered list of layouts to use by layout key (default tall, wide, fullscreen, and column).
 layouts:
-  - floating
   - tall
+  - floating
   # - fullscreen
   # - wide
   # - two-pane
