@@ -5,9 +5,9 @@
 # @raycast.packageName GitFlab
 # @raycast.title PR Commits
 # @raycast.mode silent
-# @raycast.argument1 { "type": "text", "placeholder": "Parent branch (default: staging)", "optional": true }
-# @raycast.argument2 { "type": "text", "placeholder": "Child branch (default: current)", "optional": true }
-# @raycast.argument3 { "type": "text", "placeholder": "Repository path (default: current)", "optional": true }
+# @raycast.argument1 { "type": "text", "placeholder": "Feature (default: current)", "optional": true }
+# @raycast.argument2 { "type": "text", "placeholder": "Base (default: staging)", "optional": true }
+# @raycast.argument3 { "type": "text", "placeholder": "Repository path (default: skeleton-go)", "optional": true }
 
 # Optional parameters:
 # @raycast.icon 🌳
@@ -20,15 +20,15 @@ import subprocess
 import sys
 import os
 
-parent = (
-    (sys.argv[1].strip() if sys.argv[1].strip() else "staging")
+feature = (
+    (sys.argv[1].strip() if sys.argv[1].strip() else None)
     if len(sys.argv) > 1
-    else "staging"
-)
-child = (
-    (sys.argv[2].strip() if sys.argv[2].strip() else None)
-    if len(sys.argv) > 2
     else None
+)
+base = (
+    (sys.argv[2].strip() if sys.argv[2].strip() else "staging")
+    if len(sys.argv) > 2
+    else "staging"
 )
 repo_path = (
     (
@@ -50,12 +50,12 @@ def run_git(args):
     return subprocess.check_output(cmd, text=True, encoding="utf-8", env=env).strip()
 
 
-if not child:
-    child = run_git(["rev-parse", "--abbrev-ref", "HEAD"])
+if not feature:
+    feature = run_git(["rev-parse", "--abbrev-ref", "HEAD"])
 
-merge_base = run_git(["merge-base", parent, child])
+merge_base = run_git(["merge-base", base, feature])
 
-commits = run_git(["log", f"{merge_base}..{child}", "--format=* %s"])
+commits = run_git(["log", f"{merge_base}..{feature}", "--format=* %s"])
 
 output = "\n\n".join(commits.splitlines())
 
