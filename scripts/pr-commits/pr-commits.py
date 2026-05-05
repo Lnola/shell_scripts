@@ -50,8 +50,22 @@ def run_git(args):
     return subprocess.check_output(cmd, text=True, encoding="utf-8", env=env).strip()
 
 
+def resolve_branch(branch):
+    """Return branch name, using origin/ prefix if not local"""
+    try:
+        run_git(["rev-parse", branch])
+        return branch
+    except subprocess.CalledProcessError:
+        return f"origin/{branch}"
+
+
+run_git(["fetch", "origin"])
+
 if not feature:
     feature = run_git(["rev-parse", "--abbrev-ref", "HEAD"])
+
+feature = resolve_branch(feature)
+base = resolve_branch(base)
 
 merge_base = run_git(["merge-base", base, feature])
 
