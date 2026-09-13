@@ -18,5 +18,13 @@
   {
     "source": "~/bin/config/zsh/.zshrc",
     "destination": "~/.zshrc"
+  },
+  {
+    "source": "~/bin/config/yabai/.yabairc",
+    "destination": "~/.yabairc"
+  },
+  {
+    "source": "~/bin/config/skhd/.skhdrc",
+    "destination": "~/.skhdrc"
   }
 ]
