@@ -1,31 +1,11 @@
 [
   {
-    "source": "~/bin/config/amethyst/.amethyst.yml",
-    "destination": "~/.amethyst.yml"
-  },
-  {
-    "source": "~/bin/config/p10k/.color_config.p10k.zsh",
-    "destination": "~/.zsh_config/.color_config.p10k.zsh"
-  },
-  {
-    "source": "~/bin/config/p10k/.p10k.zsh",
-    "destination": "~/.p10k.zsh"
-  },
-  {
     "source": "~/bin/config/starship/.starship.toml",
     "destination": "~/.config/starship.toml"
   },
   {
     "source": "~/bin/config/starship/.starship.zsh",
     "destination": "~/.starship.zsh"
-  },
-  {
-    "source": "~/bin/config/zsh/scripts/alias_sub_folders.zsh",
-    "destination": "~/.zsh_scripts/alias_sub_folders.zsh"
-  },
-  {
-    "source": "~/bin/config/zsh/scripts/manage_nvmrc_with_fnm.zsh",
-    "destination": "~/.zsh_scripts/manage_nvmrc_with_fnm.zsh"
   },
   {
     "source": "~/bin/config/zsh/.zsh_alias",
