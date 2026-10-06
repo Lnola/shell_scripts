@@ -76,11 +76,35 @@
 # A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
 # ############################################################### #
 
-# focus window
-# alt - h : yabai -m window --focus west
+# home-row directions: J = left, K = down, L = up, ; = right
+# skhd reserves literal semicolons; 0x29 is the US/ANSI semicolon key
 
-# swap managed window
-# shift + alt - h : yabai -m window --swap north
+# focus window (Ctrl + Option + J/K/L/;)
+ctrl + alt - j    : /opt/homebrew/bin/yabai -m window --focus west
+ctrl + alt - k    : /opt/homebrew/bin/yabai -m window --focus south
+ctrl + alt - l    : /opt/homebrew/bin/yabai -m window --focus north
+ctrl + alt - 0x29 : /opt/homebrew/bin/yabai -m window --focus east
+
+# swap with the neighboring tiled window (Ctrl + Option + Shift + J/K/L/;)
+ctrl + alt + shift - j    : /opt/homebrew/bin/yabai -m window --swap west
+ctrl + alt + shift - k    : /opt/homebrew/bin/yabai -m window --swap south
+ctrl + alt + shift - l    : /opt/homebrew/bin/yabai -m window --swap north
+ctrl + alt + shift - 0x29 : /opt/homebrew/bin/yabai -m window --swap east
+
+# resize the focused window's width in 80-pixel steps: W = width
+# Ctrl + Option makes it wider; adding Shift makes it narrower
+# try the right edge first, then the left edge if there is no split
+ctrl + alt - w : /opt/homebrew/bin/yabai -m window --resize right:80:0 || /opt/homebrew/bin/yabai -m window --resize left:-80:0
+ctrl + alt + shift - w : /opt/homebrew/bin/yabai -m window --resize right:-80:0 || /opt/homebrew/bin/yabai -m window --resize left:80:0
+
+# restore equal-sized tiles on the current desktop (Ctrl + Option + B)
+ctrl + alt - b : /opt/homebrew/bin/yabai -m space --balance
+
+# rebuild tiling on the current desktop (Ctrl + Option + R)
+ctrl + alt - r : /opt/homebrew/bin/yabai -m space --layout bsp
+
+# restart yabai completely (Ctrl + Option + Shift + R)
+ctrl + alt + shift - r : /opt/homebrew/bin/yabai --restart-service
 
 # move managed window
 # shift + cmd - h : yabai -m window --warp east
